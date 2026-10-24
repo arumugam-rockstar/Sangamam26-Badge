@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sangamam26 badge maker | PMI Chennai Chapter</title>
+<title>Sangamam26 badge maker | BuildWithAru</title>
 <meta name="description" content="Create your I'm attending or I'm volunteering badge for Sangamam26.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --violet-600: #4B1944;
-    --violet-100: #F1E8F0;
-    --violet-50: #F9F5F9;
-    --aqua-200: #A4E0E0;
-    --aqua-700: #0F6E73;
-    --tangerine-300: #FF6210;
-    --ink: #1D0B1B;
-    --muted: #6A5668;
-    --line: #E3D5E1;
+    --violet-600: #0A1F52;
+    --violet-100: #E4EDFB;
+    --violet-50: #F3F7FD;
+    --aqua-200: #BDE6FF;
+    --aqua-700: #0B5ED7;
+    --tangerine-300: #FF7A1A;
+    --ink: #0B1530;
+    --muted: #54648A;
+    --line: #D6E2F4;
     --bg: #FFFFFF;
     --err: #B3261E;
   }
@@ -26,6 +26,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
+    border-top: 6px solid; border-image: linear-gradient(90deg,#0A1F52,#0B5ED7,#00B8FF,#FFB107,#FF7A1A) 1;
     font-family: "Aeonik", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     color: var(--ink);
     background: var(--violet-50);
@@ -35,12 +36,11 @@
   header { margin-bottom: 22px; }
   .brand-unused { display: flex; align-items: center; gap: 10px; color: var(--violet-600); font-weight: 600; font-size: 15px; }
   .brand i { width: 14px; height: 14px; background: var(--tangerine-300); border-radius: 50%; display: inline-block; }
-  .brandbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--violet-600); }
-  .brandlogo { height: 32px; width: auto; display: block; }
-  .wordmark { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
-  .wordmark b { color: var(--tangerine-300); font-weight: 700; }
-  .brandbar .sep { width: 1px; height: 18px; background: var(--line); }
-  .chapter { font-size: 14px; color: var(--muted); font-weight: 500; }
+  .brandhead { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 14px 20px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+  .brandlogo { height: 84px; width: auto; display: block; mix-blend-mode: multiply; }
+  .owner { font-size: 14px; color: var(--muted); line-height: 1.4; }
+  .owner b { color: var(--violet-600); display: block; font-size: 15px; }
+  .chapter { font-size: 13px; color: var(--muted); }
   h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.1; margin: 14px 0 8px; color: var(--violet-600); letter-spacing: -0.02em; }
   header p { margin: 0; color: var(--muted); max-width: 52ch; }
 
@@ -74,10 +74,10 @@
     font: inherit; font-weight: 600; border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer;
     background: var(--violet-600); color: #fff; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
   }
-  button:hover { background: #3a1234; }
+  button:hover { filter: brightness(1.12); }
   button:focus-visible, .btn:focus-visible { outline: 3px solid var(--tangerine-300); outline-offset: 2px; }
-  button.secondary, .btn.secondary { background: var(--violet-100); color: var(--violet-600); }
-  button.secondary:hover { background: #e6d6e4; }
+  button.secondary, .btn.secondary { background: var(--violet-100) !important; color: var(--violet-600); }
+  button.secondary:hover { background: #D2E2F8; filter: none; }
   button:disabled { opacity: .5; cursor: not-allowed; }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
 
@@ -97,9 +97,9 @@
   .actions.tight { margin-top: 10px; }
   textarea { width: 100%; font: inherit; font-size: 14px; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 12px; resize: vertical; color: var(--ink); }
   textarea:focus { outline: 3px solid var(--aqua-200); border-color: var(--violet-600); }
-  button.li { background: #0A66C2; } button.li:hover { background: #084f96; }
-  button.wa { background: #128C7E; } button.wa:hover { background: #0d6b60; }
-  button.ig { background: #C13584; } button.ig:hover { background: #9c2a6a; }
+  button.li { background: #0A66C2; } 
+  button.wa { background: #128C7E; }
+  button.ig { background: #C13584; }
   .privacy { font-size: 13px; color: var(--muted); margin-top: 16px; }
   footer { font-size: 13px; color: var(--muted); text-align: center; margin-top: 8px; }
 
@@ -113,14 +113,12 @@
 <body>
 <div class="wrap">
   <header>
-    <div class="brandbar">
-      <img id="brandLogo" class="brandlogo" src="assets/buildwitharu-logo.png" alt="BuildwithAru" onerror="this.remove()">
-      <span class="wordmark">Buildwith<b>Aru</b></span>
-      <span class="sep"></span>
-      <span class="chapter">PMI Chennai Chapter</span>
+    <div class="brandhead">
+      <img id="brandLogo" class="brandlogo" src="assets/buildwitharu-logo.png" alt="BuildWithAru: Learn, Build, Grow">
+      <div class="owner"><b>BuildWithAru</b>App owner: Arumugam Mariappan<div class="chapter">Made for PMI Chennai Chapter, Sangamam26</div></div>
     </div>
     <h1>Make your Sangamam26 badge</h1>
-    <p>Pick a badge, add your photo (with good resolution and clear, front-facing), and share it. This app removes the background from your photo. </p>
+    <p>Pick a badge, add your photo and share it. We remove the photo background for you. 14 November 2026, Hilton Chennai.</p>
   </header>
 
   <form id="form" class="panel" novalidate autocomplete="on">
@@ -192,18 +190,22 @@
     </div>
   </section>
 
-  <footer>Built by <b>BuildwithAru</b> for PMI Chennai Chapter members and volunteers.</footer>
+  <footer>Built by <b>BuildWithAru</b>. App owner: Arumugam Mariappan.<br>For PMI Chennai Chapter members and volunteers.</footer>
 </div>
 
 <script type="module">
 /* ============ CONFIG ============ */
 const CONFIG = {
   // Paste your Google Apps Script web app URL here (see README). Leave empty to disable email and sheet logging.
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxwWMuwWqS87Ru2i7Cmsy8-dh_gZK8FyWJu4b8xUp7s7YMOVsL2bHyp3OH9-HVULiIAHg/exec",
+  APPS_SCRIPT_URL: "",
 
-  // Where the photo circle sits on the template, as fractions of the template width.
-  // r = photo radius, ring = white ring radius. Change only if you replace the templates with a different layout.
-  CIRCLE: { cx: 0.4955, cy: 0.216, r: 0.1215, ring: 0.1275 },
+  // Where the photo circle sits on each template, as fractions of the template width.
+  // r = photo radius, ring = white disc radius (covers the template's sample picture).
+  // The two templates differ slightly, so each has its own values.
+  CIRCLE: {
+    attending:    { cx: 0.492, cy: 0.217, r: 0.1245, ring: 0.131 },
+    volunteering: { cx: 0.508, cy: 0.227, r: 0.1245, ring: 0.131 }
+  },
 
   TEMPLATES: { attending: "templates/attending.png", volunteering: "templates/volunteering.png" },
   SHARE_TEXT: {
@@ -296,7 +298,7 @@ function render() {
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
   ctx.drawImage(tpl, 0, 0, S, S);
 
-  const { cx: fx, cy: fy, r: fr, ring } = CONFIG.CIRCLE;
+  const { cx: fx, cy: fy, r: fr, ring } = CONFIG.CIRCLE[state.type];
   const cx = fx * S, cy = fy * S, r = fr * S;
 
   // white ring + white disc cover the template's sample picture
